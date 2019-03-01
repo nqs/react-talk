@@ -1,22 +1,17 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const WorkboxPlugin = require("workbox-webpack-plugin");
 
 module.exports = {
-  // The file that is the main point of access for the SPA
-  entry: path.join(__dirname, "src/client.js"),
-  // Where you want to output the file
+  entry: './lib/es6_global/src/Index.js',
   output: {
-    // The output file's name
     filename: "bundle.js",
-    // Where the output JavaScript bundle will go
+    publicPath: '/',
     path: path.join(__dirname, "build")
   },
-  // The mode to determine what optimizations to make
   mode: "development",
-  // The source map tool to see where errors occur in your editor
   devtool: "cheap-module-source-map",
-  // The loaders which handle how to compile which files
   module: {
     rules: [
       {
@@ -44,24 +39,20 @@ module.exports = {
     ]
   },
   plugins: [
-    // Plugin to clean the build folder on every build
     new CleanWebpackPlugin(["build"]),
-    // Plugin to create the index.html file and inject the script which
-    // points to the JavaScript bundle
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src/index.html"),
       filename: "index.html"
-    })
+    }),
+    new WorkboxPlugin.InjectManifest({
+      swSrc: "./src/sw.js"
+    }),
   ],
-  // The development server
   devServer: {
-    // The path to the output folder to serve
     contentBase: path.join(__dirname, "../dist"),
-    // Fallback to index.html on 404s
     historyApiFallback: true,
-    // Enable gzip compression
     compress: true,
-    // Declare the port to serve the files
+    hot: true,
     port: 3000
   }
 };

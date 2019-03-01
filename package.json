@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "concurrently \"npm run js-watch\" \"npm run bsb-watch\"",
-    "js-watch": "webpack-dev-server --hot --inline",
+    "js-watch": "webpack-dev-server --inline",
     "bsb-watch": "bsb -make-world -w"
   },
   "dependencies": {
@@ -13,7 +13,8 @@
     "normalize.css": "^8.0.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "reason-react": "^0.5.3"
+    "reason-react": "^0.5.3",
+    "workbox-webpack-plugin": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
