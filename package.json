@@ -9,6 +9,8 @@
     "bsb-watch": "bsb -make-world -w"
   },
   "dependencies": {
+    "@glennsl/bs-json": "^3.0.0",
+    "bs-axios": "^0.0.39",
     "bs-css": "^8.0.2",
     "normalize.css": "^8.0.1",
     "react": "^16.8.3",

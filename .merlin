@@ -10,6 +10,10 @@ S C:\source\reason\ReactTalk\node_modules\reason-react\lib\ocaml
 B C:\source\reason\ReactTalk\node_modules\reason-react\lib\ocaml
 S C:\source\reason\ReactTalk\node_modules\bs-css\lib\ocaml
 B C:\source\reason\ReactTalk\node_modules\bs-css\lib\ocaml
+S C:\source\reason\ReactTalk\node_modules\bs-axios\lib\ocaml
+B C:\source\reason\ReactTalk\node_modules\bs-axios\lib\ocaml
+S C:\source\reason\ReactTalk\node_modules\@glennsl\bs-json\lib\ocaml
+B C:\source\reason\ReactTalk\node_modules\@glennsl\bs-json\lib\ocaml
 S src
 B lib\bs\src
 ####BSB GENERATED: NO EDIT}

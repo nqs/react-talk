@@ -96,7 +96,7 @@ let make = (~currentRoute: Router.route, _children) => {
         <ul>
           <li>
             <Router.NavLink href="/">
-              (ReasonReact.string("Home"))
+              (ReasonReact.string("sdfsaf"))
             </Router.NavLink>
           </li>
         </ul>
