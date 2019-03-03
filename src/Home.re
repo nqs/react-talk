@@ -1,37 +1,13 @@
-type weather = {
-  temperature: float,
-  description: string,
-};
-
 type state =
   | Loading
   | Error
-  | Loaded(weather);
+  | Loaded(WeatherDecoder.weather);
 
 type action =
   | WeatherFetch
-  | WeatherFetched(weather)
+  | WeatherFetched(WeatherDecoder.weather)
   | WeatherFailedToFetch;
 
-type weatherProperties = {
-  periods: list(weather),
-}
-type weatherResponse = {
-  properties: weatherProperties,
-}
-let decodeWeatherPeriod= json =>
-  Json.Decode.{
-    temperature: json |> field("temperature", float),
-    description: json |> field("detailedForecast", string),
-  };
-let decodeWeatherProperties= json =>
-  Json.Decode.{
-    periods: json |> field("periods", list(decodeWeatherPeriod)),
-  };
-let decodeWeatherResponse= json =>
-  Json.Decode.{
-    properties: json |> field("properties", decodeWeatherProperties),
-  };
 let component = ReasonReact.reducerComponent("Home");
 
 let make =  _children => {
@@ -48,13 +24,13 @@ let make =  _children => {
             Js.Promise.(
               Axios.get("https://api.weather.gov/gridpoints/PBZ/77,65/forecast")
               |> then_(response => 
-                response##data |> decodeWeatherResponse
+                response##data |> WeatherDecoder.decodeWeatherResponse
                 |> weatherResponse => weatherResponse.properties.periods 
                   |> List.hd
                 |> weather => self.send(WeatherFetched(weather))
                 |> resolve
               )
-              |> catch((error) =>{ Js.log(error); resolve(self.send(WeatherFailedToFetch));})
+              |> catch(error => self.send(WeatherFailedToFetch) |> resolve)
               |> ignore
             )
         ),
