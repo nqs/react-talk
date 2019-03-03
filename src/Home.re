@@ -56,6 +56,11 @@ let make =  _children => {
             <label>(ReasonReact.string("Description"))</label>
             <div>(ReasonReact.string(weather.description))</div>
           </div>
+          <div>
+            <button onClick=(_ => self.send(WeatherFetch))>
+              (ReasonReact.string("Get Weather")) 
+            </button>
+          </div>
         </div>
   },
 };
