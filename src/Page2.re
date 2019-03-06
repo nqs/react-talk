@@ -4,6 +4,6 @@ let make = _children => {
   ...component,
   render: _self =>
     <div className="Page2">
-      <h1> ("Page2" |> ReasonReact.string) </h1>
+      <h1> ("Page 2 Content" |> ReasonReact.string) </h1>
     </div>
 };

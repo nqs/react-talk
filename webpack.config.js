@@ -44,9 +44,6 @@ module.exports = {
       template: path.join(__dirname, "src/index.html"),
       filename: "index.html"
     }),
-    new WorkboxPlugin.InjectManifest({
-      swSrc: "./src/sw.js"
-    }),
   ],
   devServer: {
     contentBase: path.join(__dirname, "../dist"),

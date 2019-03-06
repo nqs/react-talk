@@ -5,10 +5,10 @@ type route = {
 };
 
 let routes = [
-  {href: "/", title: "Home", component: <Home />},
-  {href: "/page1", title: "Page1", component: <Page1 />},
-  {href: "/page2", title: "Page2", component: <Page2 />},
-  {href: "/page3", title: "Page3", component: <Page3 />},
+  {href: "/", title: "Home Title", component: <Home />},
+  {href: "/page1", title: "Page 1 Title", component: <Page1 />},
+  {href: "/page2", title: "Page 2 Title", component: <Page2 />},
+  {href: "/page3", title: "Page 3 Title", component: <Page3 />},
 ];
 
 let hrefToPath = href =>
@@ -51,7 +51,7 @@ module WithRouter = {
 
 module Link = {
   let component = ReasonReact.statelessComponent("Link");
-  let make = (~href, ~className="", children) => {
+  let make = (~href, ~className, children) => {
     ...component,
     render: self =>
       <a
@@ -77,7 +77,7 @@ module NavLink = {
         ...(
              (~currentRoute) =>
                <Link
-                 href className=(currentRoute.href == href ? "active" : "")>
+                 href className=(currentRoute.href == href ? "nav-link active" : "nav-link")>
                  ...children
                </Link>
            )

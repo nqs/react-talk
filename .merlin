@@ -1,19 +1,19 @@
 
 ####{BSB GENERATED: NO EDIT
-FLG -ppx "C:\source\reason\ReactTalk\node_modules\bs-platform\lib\reactjs_jsx_ppx_2.exe"
-FLG -ppx C:\source\reason\ReactTalk\node_modules\bs-platform\lib\bsppx.exe
-S C:\source\reason\ReactTalk\node_modules\bs-platform\lib\ocaml
-B C:\source\reason\ReactTalk\node_modules\bs-platform\lib\ocaml
+FLG -ppx '/Users/nick/source/react-talk/node_modules/bs-platform/lib/reactjs_jsx_ppx_2.exe'
+FLG -ppx /Users/nick/source/react-talk/node_modules/bs-platform/lib/bsppx.exe
+S /Users/nick/source/react-talk/node_modules/bs-platform/lib/ocaml
+B /Users/nick/source/react-talk/node_modules/bs-platform/lib/ocaml
 FLG -nostdlib -color always
 FLG -w -30-40+6+7+27+32..39+44+45+101
-S C:\source\reason\ReactTalk\node_modules\reason-react\lib\ocaml
-B C:\source\reason\ReactTalk\node_modules\reason-react\lib\ocaml
-S C:\source\reason\ReactTalk\node_modules\bs-css\lib\ocaml
-B C:\source\reason\ReactTalk\node_modules\bs-css\lib\ocaml
-S C:\source\reason\ReactTalk\node_modules\bs-axios\lib\ocaml
-B C:\source\reason\ReactTalk\node_modules\bs-axios\lib\ocaml
-S C:\source\reason\ReactTalk\node_modules\@glennsl\bs-json\lib\ocaml
-B C:\source\reason\ReactTalk\node_modules\@glennsl\bs-json\lib\ocaml
+S /Users/nick/source/react-talk/node_modules/reason-react/lib/ocaml
+B /Users/nick/source/react-talk/node_modules/reason-react/lib/ocaml
+S /Users/nick/source/react-talk/node_modules/bs-css/lib/ocaml
+B /Users/nick/source/react-talk/node_modules/bs-css/lib/ocaml
+S /Users/nick/source/react-talk/node_modules/bs-axios/lib/ocaml
+B /Users/nick/source/react-talk/node_modules/bs-axios/lib/ocaml
+S /Users/nick/source/react-talk/node_modules/@glennsl/bs-json/lib/ocaml
+B /Users/nick/source/react-talk/node_modules/@glennsl/bs-json/lib/ocaml
 S src
-B lib\bs\src
+B lib/bs/src
 ####BSB GENERATED: NO EDIT}

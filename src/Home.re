@@ -23,9 +23,9 @@ let make =  _children => {
           self =>
             Js.Promise.(
               Axios.get("https://api.weather.gov/gridpoints/PBZ/77,65/forecast")
-              |> then_(response => 
+              |> then_(response =>
                 response##data |> WeatherDecoder.decodeWeatherResponse
-                |> weatherResponse => weatherResponse.properties.periods 
+                |> weatherResponse => weatherResponse.properties.periods
                   |> List.hd
                 |> weather => self.send(WeatherFetched(weather))
                 |> resolve
@@ -40,27 +40,19 @@ let make =  _children => {
   },
   render: self =>
     switch (self.state) {
-      | Error=> 
+      | Error=>
         <div>
           <h1>("Error!" |> ReasonReact.string)</h1>
         </div>
       | Loading => <div> ("Loading..." |> ReasonReact.string) </div>
       | Loaded(weather) =>
-        <div>
-          <h1>("Weather" |> ReasonReact.string) </h1>
-          <div>
-            <label>("Temperature" |> ReasonReact.string)</label>
-            <div>(string_of_float(weather.temperature) |> ReasonReact.string)</div>
-          </div>
-          <div>
-            <label>("Description" |> ReasonReact.string)</label>
-            <div>(weather.description |> ReasonReact.string)</div>
-          </div>
-          <div>
-            <button onClick=(_ => self.send(WeatherFetch))>
-              ("Get Weather" |> ReasonReact.string) 
-            </button>
-          </div>
+        <div className="jumbotron">
+          <h1 className="display-4">("Weather" |> ReasonReact.string) </h1>
+          <p className="lead">("This will fetch the weather for Pittsburgh" |> ReasonReact.string)</p>
+          <p>(weather.description |> ReasonReact.string)</p>
+          <button className="btn btn-primary" onClick=(_ => self.send(WeatherFetch))>
+            ("Get Weather" |> ReasonReact.string)
+          </button>
         </div>
   },
 };
