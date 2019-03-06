@@ -1,8 +1,7 @@
-
 type weather = {
   temperature: float,
   description: string,
-};
+}
 type weatherProperties = {
   periods: list(weather),
 }

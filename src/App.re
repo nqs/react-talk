@@ -5,38 +5,38 @@ let make = (~currentRoute: Router.route, _children) => {
   render: self =>
     <div>
       <header>
-        <h1> (ReasonReact.string(currentRoute.title)) </h1>
+        <h1> (currentRoute.title |> ReasonReact.string) </h1>
       </header>
-      <nav>
-        <header>
-        </header>
-        <label> (ReasonReact.string("home label")) </label>
-        <ul>
-          <li>
-            <Router.NavLink href="/">
-              (ReasonReact.string("Home"))
-            </Router.NavLink>
-          </li>
-        </ul>
-        <label> (ReasonReact.string("pages")) </label>
-        <ul>
-          <li>
-            <Router.NavLink href="/page1">
-              (ReasonReact.string("Page1"))
-            </Router.NavLink>
-          </li>
-          <li>
-            <Router.NavLink href="/page2">
-              (ReasonReact.string("Page2"))
-            </Router.NavLink>
-          </li>
-          <li>
-            <Router.NavLink href="/page3">
-              (ReasonReact.string("Page3"))
-            </Router.NavLink>
-          </li>
-        </ul>
-      </nav>
+      <header>
+        <nav>
+          <label> ("Home Title" |> ReasonReact.string) </label>
+          <ul>
+            <li>
+              <Router.NavLink href="/">
+                ("Home" |> ReasonReact.string)
+              </Router.NavLink>
+            </li>
+          </ul>
+          <label> ("pages" |> ReasonReact.string) </label>
+          <ul>
+            <li>
+              <Router.NavLink href="/page1">
+                ("Page1" |> ReasonReact.string)
+              </Router.NavLink>
+            </li>
+            <li>
+              <Router.NavLink href="/page2">
+                ("Page2" |> ReasonReact.string)
+              </Router.NavLink>
+            </li>
+            <li>
+              <Router.NavLink href="/page3">
+                ("Page3" |> ReasonReact.string)
+              </Router.NavLink>
+            </li>
+          </ul>
+        </nav>
+      </header>
       <main>
         currentRoute.component
       </main>

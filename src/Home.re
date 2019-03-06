@@ -42,23 +42,23 @@ let make =  _children => {
     switch (self.state) {
       | Error=> 
         <div>
-          <h1>(ReasonReact.string("Error!"))</h1>
+          <h1>("Error!" |> ReasonReact.string)</h1>
         </div>
-      | Loading => <div> (ReasonReact.string("Loading...")) </div>
+      | Loading => <div> ("Loading..." |> ReasonReact.string) </div>
       | Loaded(weather) =>
         <div>
-          <h1>(ReasonReact.string("Weather")) </h1>
+          <h1>("Weather" |> ReasonReact.string) </h1>
           <div>
-            <label>(ReasonReact.string("Temperature"))</label>
-            <div>(ReasonReact.string(string_of_float(weather.temperature)))</div>
+            <label>("Temperature" |> ReasonReact.string)</label>
+            <div>(string_of_float(weather.temperature) |> ReasonReact.string)</div>
           </div>
           <div>
-            <label>(ReasonReact.string("Description"))</label>
-            <div>(ReasonReact.string(weather.description))</div>
+            <label>("Description" |> ReasonReact.string)</label>
+            <div>(weather.description |> ReasonReact.string)</div>
           </div>
           <div>
             <button onClick=(_ => self.send(WeatherFetch))>
-              (ReasonReact.string("Get Weather")) 
+              ("Get Weather" |> ReasonReact.string) 
             </button>
           </div>
         </div>
